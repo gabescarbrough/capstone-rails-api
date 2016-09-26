@@ -1,4 +1,4 @@
-class CollectionsController < ApplicationController
+class CollectionsController < OpenReadController
   before_action :set_collection, only: [:show, :update, :destroy]
 
   # GET /collections
@@ -18,7 +18,7 @@ class CollectionsController < ApplicationController
   # POST /collections
   # POST /collections.json
   def create
-    @collection = Collection.new(collection_params)
+    @collection = current_user.collections.build(collection_params)
 
     if @collection.save
       render json: @collection, status: :created, location: @collection
