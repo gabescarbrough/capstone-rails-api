@@ -30,7 +30,7 @@ class CollectionsController < OpenReadController
   # PATCH/PUT /collections/1
   # PATCH/PUT /collections/1.json
   def update
-    @collection = Collection.find(params[:id])
+    @collection = current_user.collections.find(params[:id])
 
     if @collection.update(collection_params)
       head :no_content
