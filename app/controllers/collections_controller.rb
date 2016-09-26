@@ -42,6 +42,8 @@ class CollectionsController < OpenReadController
   # DELETE /collections/1
   # DELETE /collections/1.json
   def destroy
+    @collection = current_user.collections.find(params[:id])
+
     @collection.destroy
 
     head :no_content
