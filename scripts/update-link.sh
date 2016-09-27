@@ -1,8 +1,8 @@
-curl --include --request PATCH "http://localhost:3000/collections/4" \
-  --header "Authorization: Token token=BAhJIiU5NTIwYTVkNGUzZDc0MjNjNGI4ODU2ZGRjOGFlZjVkNAY6BkVG--92e3b7df85a7f55d9d7944750acf58ccf35fc930" \
+curl --include --request PATCH "http://localhost:3000/links/11" \
+  --header "Authorization: Token token=BAhJIiUyOGRjNDQ4ODJjZmNhNDNmZTU1MjYxMDk3NDkxNDlmOQY6BkVG--4453b09cc867075ff044d3dbf8d71e8bdae265e5" \
   --header "Content-Type: application/json" \
   --data '{
-    "collection": {
-      "name": "Rename Collection"
+    "link": {
+      "name": "Rename Link"
     }
   }'
