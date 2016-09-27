@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926221605) do
+ActiveRecord::Schema.define(version: 20160926224522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,9 +39,12 @@ ActiveRecord::Schema.define(version: 20160926221605) do
     t.string   "name"
     t.string   "url"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "collection_id"
   end
+
+  add_index "links", ["collection_id"], name: "index_links_on_collection_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -56,4 +59,5 @@ ActiveRecord::Schema.define(version: 20160926221605) do
 
   add_foreign_key "collections", "users"
   add_foreign_key "examples", "users"
+  add_foreign_key "links", "collections"
 end
