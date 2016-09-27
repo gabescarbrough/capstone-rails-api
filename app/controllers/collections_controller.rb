@@ -4,7 +4,13 @@ class CollectionsController < OpenReadController
   # GET /collections
   # GET /collections.json
   def index
-    @collections = Collection.all
+    if params[:current_user] == 'true'
+      @collections = current_user.collections
+    elsif params[:user_id]
+      @collections = User.find(params[:user_id]).collections
+    else
+      @collections = Collection.all
+    end
 
     render json: @collections
   end
