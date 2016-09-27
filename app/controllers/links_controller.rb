@@ -1,4 +1,4 @@
-class LinksController < ApplicationController
+class LinksController < OpenReadController
   before_action :set_link, only: [:show, :update, :destroy]
 
   # GET /links
