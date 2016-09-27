@@ -56,6 +56,6 @@ class CollectionsController < OpenReadController
   end
 
   def collection_params
-    params.require(:collection).permit(:name, :description)
+    params.require(:collection).permit(:name, :description, :user_id)
   end
 end

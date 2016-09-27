@@ -1,5 +1,5 @@
 class CollectionSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :links
+  attributes :id, :user_id, :name, :description, :links
 
   def links
     object.links.pluck(:id)
