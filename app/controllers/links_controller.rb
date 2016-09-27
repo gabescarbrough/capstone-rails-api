@@ -18,7 +18,7 @@ class LinksController < OpenReadController
   # POST /links
   # POST /links.json
   def create
-    @link = Link.new(link_params)
+    @link = current_user.links.build(link_params)
 
     if @link.save
       render json: @link, status: :created, location: @link
@@ -30,7 +30,7 @@ class LinksController < OpenReadController
   # PATCH/PUT /links/1
   # PATCH/PUT /links/1.json
   def update
-    @link = Link.find(params[:id])
+    @link = current_user.links.find(params[:id])
 
     if @link.update(link_params)
       head :no_content
@@ -42,6 +42,8 @@ class LinksController < OpenReadController
   # DELETE /links/1
   # DELETE /links/1.json
   def destroy
+    @link = current_user.links.find(params[:id])
+
     @link.destroy
 
     head :no_content
