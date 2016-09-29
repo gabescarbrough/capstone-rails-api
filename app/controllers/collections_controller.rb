@@ -1,4 +1,4 @@
-class CollectionsController < OpenReadController
+class CollectionsController < ProtectedController
   before_action :set_collection, only: [:show, :update, :destroy]
 
   # GET /collections
